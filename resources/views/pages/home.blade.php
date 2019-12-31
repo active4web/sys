@@ -42,10 +42,18 @@
                                                 <div class="caption"></div>
                                                 <div class="actions"></div>
                                             </div>
-                                            <div class="portlet-body form">
+                                            <div class="portlet-body form"  style="margin-top:150px">
                                                 <!-- BEGIN FORM-->
+                                                @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
                                                 <form action="{{url('/')}}/task" class="form-horizontal form-bordered" id="form" method="get" >
-												<input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <div class="form-body">
 														
                                                         <div class="form-group" style="direction:ltr">

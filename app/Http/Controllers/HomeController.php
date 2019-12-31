@@ -32,11 +32,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function task(Request $request)
+    public function store(Request $request)
     {
-        $string=$request->input('overview');
-        $validatedData = $request->validate(['overview' => 'required|max:5',]);
-        
+        $string=$request->input('str');
+        $validatedData = $request->validate(['str' => 'required|max:255',]);
         $indexes=0;
         foreach(array_unique(str_split($string)) as $letter){
             $indexes++;$count = 0;$before = '';$after = '';$maxdistance = null;
